@@ -8,6 +8,7 @@ module.exports = {
   getAllRoutes: function(req, res) {
       // Fast - 20ms
       // Used for Routes main view
+      res.set('Access-Control-Allow-Origin','*');
       res.send(routes);
   },
   
@@ -16,6 +17,7 @@ module.exports = {
     // Used for Route, Favorites detail view
     // Give me all the trips for this route
     Trips.find({route_id: req.params.route_id}, function(err, docs){
+      res.set('Access-Control-Allow-Origin','*');
       res.send(docs);
     });
   },
@@ -37,6 +39,7 @@ module.exports = {
           return d.stoptimes[i].time > currentTime
         }
       });
+      res.set('Access-Control-Allow-Origin','*');
       res.send(trips);
     });
   },
@@ -59,6 +62,7 @@ module.exports = {
     // where stop_lookup contains both locations (multikey index in mongo?)
     // where the end location has a higher index
     // and the time > now
+    res.set('Access-Control-Allow-Origin','*');
     res.send(today);
   }
   

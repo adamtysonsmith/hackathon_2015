@@ -2,7 +2,7 @@ var mongoose   = require('mongoose');
 var express    = require('express');
 var bodyParser = require('body-parser');
 var controller = require('./controller');
-var secret     = require('./secret');
+var secret     = null;
 
 // connect to db
 mongoose.connect(secret || 'mongodb://localhost/rtd');
